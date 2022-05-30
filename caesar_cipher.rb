@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 def caesar_cipher(string, factor)
   hash = {
     "a" => 0,
@@ -34,6 +36,7 @@ def caesar_cipher(string, factor)
     else
     print "#{hash.key(hash[c].to_i)}"
     end
+    binding.pry
   end
 end
 
