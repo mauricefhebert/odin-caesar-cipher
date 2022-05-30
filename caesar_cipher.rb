@@ -1,90 +1,22 @@
-require 'pry-byebug'
-
 def caesar_cipher(string, factor)
-  hash = {
-    "a" => 0,
-    "b" => 1,
-    "c" => 2,
-    "d" => 3,
-    "e" => 4,
-    "f" => 5,
-    "g" => 6,
-    "h" => 7,
-    "i" => 8,
-    "j" => 9,
-    "k" => 10,
-    "l" => 11,
-    "m" => 12,
-    "n" => 13,
-    "o" => 14,
-    "p" => 15,
-    "q" => 16,
-    "r" => 17,
-    "s" => 18,
-    "t" => 19,
-    "u" => 20,
-    "v" => 21,
-    "w" => 22,
-    "x" => 23,
-    "y" => 24,
-    "z" => 25,
-  }
-  
+  arr = []
   string.split("").map do |c|
-    if c == " " || "!"
-      print "#{c}"
+    if c == " " || c == "!"
+       arr.push(c)
     else
-    print "#{hash.key(hash[c].to_i)}"
-    end
-    binding.pry
-  end
-end
-
-caesar_cipher("What a string!", 5)
-
-# if number less then 0 convert to positive value
-
-# else puts the valuedef caesar_cipher(string, factor)
-  hash = {
-    "a" => 0,
-    "b" => 1,
-    "c" => 2,
-    "d" => 3,
-    "e" => 4,
-    "f" => 5,
-    "g" => 6,
-    "h" => 7,
-    "i" => 8,
-    "j" => 9,
-    "k" => 10,
-    "l" => 11,
-    "m" => 12,
-    "n" => 13,
-    "o" => 14,
-    "p" => 15,
-    "q" => 16,
-    "r" => 17,
-    "s" => 18,
-    "t" => 19,
-    "u" => 20,
-    "v" => 21,
-    "w" => 22,
-    "x" => 23,
-    "y" => 24,
-    "z" => 25,
-  }
-  
-  string.split("").map do |c|
-    if c == " " || "!"
-      print "#{c}"
-    else
-    print "#{hash.key(hash[c].to_i)}"
+      n = (c.downcase.tr("abcdefghijklmnopqrstuvwxyz", "0123456789abcdefghijklmnopq").to_i(26) + factor)
+      if n > 25 
+        n = (26 - n).abs()
+      end
+        arr.push(n.to_s(26).tr( "0123456789abcdefghijklmnopq", "abcdefghijklmnopqrstuvwxyz" ))
     end
   end
+        print arr.join().capitalize
 end
+#caesar_cipher("What a string!", 5)
 
-caesar_cipher("What a string!", 5)
+# puts ?b.ord
 
-# if number less then 0 convert to positive value
-
-# else puts the value
+# for i in a..z do
+#   puts ?i
+# end
