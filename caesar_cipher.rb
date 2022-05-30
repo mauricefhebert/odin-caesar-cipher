@@ -85,5 +85,3 @@ caesar_cipher("What a string!", 5)
 # if number less then 0 convert to positive value
 
 # else puts the value
-
- git config --global user.email "filiatreaultmaurice@gmail.com" && git config --global user.name "mauricefhebert"
